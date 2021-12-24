@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LEARN\\OOP\\Quanlicaphe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj": {}
+    "D:\\LEARN\\OOP\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj": {}
   },
   "projects": {
-    "D:\\LEARN\\OOP\\Quanlicaphe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj": {
+    "D:\\LEARN\\OOP\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LEARN\\OOP\\Quanlicaphe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj",
+        "projectUniqueName": "D:\\LEARN\\OOP\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj",
         "projectName": "QuanLiQuanCaPhe",
-        "projectPath": "D:\\LEARN\\OOP\\Quanlicaphe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj",
+        "projectPath": "D:\\LEARN\\OOP\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe.csproj",
         "packagesPath": "C:\\Users\\haoda\\.nuget\\packages\\",
-        "outputPath": "D:\\LEARN\\OOP\\Quanlicaphe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\obj\\",
+        "outputPath": "D:\\LEARN\\OOP\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\QuanLiQuanCaPhe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

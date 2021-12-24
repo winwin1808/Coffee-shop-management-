@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace QuanLiQuanCaPhe
 {
     public partial class Admin : Form
@@ -15,6 +15,13 @@ namespace QuanLiQuanCaPhe
         public Admin()
         {
             InitializeComponent();
+            LoadAccountList();
+        }
+            
+        void LoadAccountList()
+        {
+            SqlConnection con = new SqlConnection();
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -48,6 +55,11 @@ namespace QuanLiQuanCaPhe
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
         {
 
         }

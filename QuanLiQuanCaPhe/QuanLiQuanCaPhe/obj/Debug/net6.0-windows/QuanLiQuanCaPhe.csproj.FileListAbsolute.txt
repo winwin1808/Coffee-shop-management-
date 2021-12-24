@@ -18,3 +18,16 @@ D:\LEARN\OOP\Quanlicaphe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-window
 D:\LEARN\OOP\Quanlicaphe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.TableManager.resources
 D:\LEARN\OOP\Quanlicaphe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.PersonalInformation.resources
 D:\LEARN\OOP\Quanlicaphe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.Admin.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.csproj.AssemblyReference.cache
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.Admin.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.LOGIN.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.PersonalInformation.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.TableManager.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.csproj.GenerateResource.cache
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.GeneratedMSBuildEditorConfig.editorconfig
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.AssemblyInfoInputs.cache
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.AssemblyInfo.cs
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.csproj.CoreCompileInputs.cache
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.dll
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\ref\QuanLiQuanCaPhe.dll
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.pdb
