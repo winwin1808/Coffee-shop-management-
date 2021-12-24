@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 namespace QuanLiQuanCaPhe
 {
     public partial class Admin : Form
@@ -15,13 +15,27 @@ namespace QuanLiQuanCaPhe
         public Admin()
         {
             InitializeComponent();
+
             LoadAccountList();
         }
             
         void LoadAccountList()
         {
-            SqlConnection con = new SqlConnection();
+            string connectionString = "Data Source=PENNY;Initial Catalog=QuanLiCaPhe;Integrated Security=True;TrustServerCertificate=True";
+            SqlConnection connection = new SqlConnection(connectionString);
 
+            string query = "SELECT * FROM dbo.TAIKHOAN";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+            adapter.Fill(dt);
+
+            connection.Close();
+
+            dataGridViewAccount.DataSource = dt;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
