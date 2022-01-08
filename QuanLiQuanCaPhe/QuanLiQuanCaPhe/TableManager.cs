@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLiQuanCaPhe.DAO;
+using QuanLiQuanCaPhe.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +17,41 @@ namespace QuanLiQuanCaPhe
         public TableManager()
         {
             InitializeComponent();
+            LoadTable();
         }
+
+
+        #region Method
+
+        void LoadTable()
+        {
+            List<Table> tablelist = DAO.TableDAO.Instance.LoadTableList();
+            foreach (Table item in tablelist)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+                btn.Text = item.TenBan + "\n" + item.TrangThai;
+               // btn.Click += btn_Click;
+                btn.Tag = item;
+
+                switch (item.TrangThai)
+                {
+                    case "Available":
+                        btn.BackColor = Color.LightBlue;
+                        break;
+                    default:
+                        btn.BackColor = Color.DarkGray;
+                        break;
+                }
+
+                flpTable.Controls.Add(btn);
+            }
+        }
+
+        #endregion
+
+
+        #region event
+
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,6 +73,11 @@ namespace QuanLiQuanCaPhe
         {
             Admin f = new Admin();
             f.ShowDialog();
+        }
+
+        private void flpTable_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

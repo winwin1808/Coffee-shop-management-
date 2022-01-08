@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using QuanLiQuanCaPhe.DAO;
+
 namespace QuanLiQuanCaPhe
 {
     public partial class Admin : Form
@@ -21,21 +23,11 @@ namespace QuanLiQuanCaPhe
             
         void LoadAccountList()
         {
-            string connectionString = "Data Source=PENNY;Initial Catalog=QuanLiCaPhe;Integrated Security=True;TrustServerCertificate=True";
-            SqlConnection connection = new SqlConnection(connectionString);
-
-            string query = "SELECT * FROM dbo.TAIKHOAN";
-            SqlCommand command = new SqlCommand(query, connection);
-
-            DataTable dt = new DataTable();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-            adapter.Fill(dt);
-
-            connection.Close();
-
-            dataGridViewAccount.DataSource = dt;
+            string query = "SELECT	* FROM dbo.TAIKHOAN WHERE TenDangNhap = @TenDangNhap";
+ 
+            DataProvider provider = new DataProvider();
+ 
+            dataGridViewAccount.DataSource = provider.ExcuteQuery(query, new object[] {"Hao"});
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

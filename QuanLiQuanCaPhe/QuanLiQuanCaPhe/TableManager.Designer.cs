@@ -231,10 +231,13 @@
             // 
             // flpTable
             // 
-            this.flpTable.Location = new System.Drawing.Point(12, 42);
+            this.flpTable.AccessibleDescription = "loadTable";
+            this.flpTable.AutoScroll = true;
+            this.flpTable.Location = new System.Drawing.Point(8, 40);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(418, 455);
+            this.flpTable.Size = new System.Drawing.Size(419, 457);
             this.flpTable.TabIndex = 6;
+            this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
             // TableManager
             // 

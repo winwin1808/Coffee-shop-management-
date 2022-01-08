@@ -1,3 +1,5 @@
+using QuanLiQuanCaPhe.DAO;
+
 namespace QuanLiQuanCaPhe
 {
     public partial class LOGIN : Form
@@ -29,11 +31,28 @@ namespace QuanLiQuanCaPhe
 
         private void button_LOGIN_Click(object sender, EventArgs e)
         {
-            TableManager f = new TableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string UserName = textbox_LOGIN.Text;
+            string PassWord = textbox_PASSWORD.Text;    
+
+            if (Login(UserName, PassWord))
+            {
+                TableManager f = new TableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username or Password!");
+            }
+           
         }
+
+        bool Login(string UserName, string PassWord)
+        {
+            return AccountDAO.Instance.Login(UserName,PassWord);
+        }
+
 
         private void LOGIN_FormClosing(object sender, FormClosingEventArgs e)
         {
