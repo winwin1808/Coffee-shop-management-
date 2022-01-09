@@ -47,10 +47,30 @@ namespace QuanLiQuanCaPhe
             }
         }
 
+        void ShowBill(int id)
+        {
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));
+            foreach (BillInfo item in listBillInfo)
+            {
+                ListViewItem lvItem = new ListViewItem(item.IDMonAn.ToString());
+                lvItem.SubItems.Add(item.SoLuong.ToString());
+                //lvItem.SubItems.Add(item.Gia.ToString());
+                lvBill.Items.Add(lvItem);
+            }
+
+        }
+
         #endregion
 
 
-        #region event
+        #region Events
+
+        void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).SoBan;
+            ShowBill(tableID);
+        }
+
 
 
         private void thôngTinTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,5 +99,7 @@ namespace QuanLiQuanCaPhe
         {
 
         }
+        #endregion
     }
 }
+ 

@@ -48,6 +48,8 @@
             this.cbDrink = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.IDMonAn = new System.Windows.Forms.ColumnHeader();
+            this.IDSoLuong = new System.Windows.Forms.ColumnHeader();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -101,18 +103,23 @@
             // 
             this.panel2.Controls.Add(this.lvBill);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(433, 105);
+            this.panel2.Location = new System.Drawing.Point(12, 108);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 326);
             this.panel2.TabIndex = 3;
             // 
             // lvBill
             // 
+            this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IDMonAn,
+            this.IDSoLuong});
+            this.lvBill.GridLines = true;
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
             this.lvBill.Size = new System.Drawing.Size(349, 320);
             this.lvBill.TabIndex = 1;
             this.lvBill.UseCompatibleStateImageBehavior = false;
+            this.lvBill.View = System.Windows.Forms.View.List;
             // 
             // panel3
             // 
@@ -128,7 +135,7 @@
             this.panel4.Controls.Add(this.nmDiscount);
             this.panel4.Controls.Add(this.btDiscount);
             this.panel4.Controls.Add(this.btBill);
-            this.panel4.Location = new System.Drawing.Point(433, 437);
+            this.panel4.Location = new System.Drawing.Point(12, 440);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(355, 60);
             this.panel4.TabIndex = 4;
@@ -182,7 +189,7 @@
             this.panel5.Controls.Add(this.ADD);
             this.panel5.Controls.Add(this.cbDrink);
             this.panel5.Controls.Add(this.cbCategory);
-            this.panel5.Location = new System.Drawing.Point(433, 42);
+            this.panel5.Location = new System.Drawing.Point(12, 42);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(355, 60);
             this.panel5.TabIndex = 5;
@@ -233,9 +240,9 @@
             // 
             this.flpTable.AccessibleDescription = "loadTable";
             this.flpTable.AutoScroll = true;
-            this.flpTable.Location = new System.Drawing.Point(8, 40);
+            this.flpTable.Location = new System.Drawing.Point(370, 42);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(419, 457);
+            this.flpTable.Size = new System.Drawing.Size(419, 458);
             this.flpTable.TabIndex = 6;
             this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
@@ -287,5 +294,7 @@
         private Button btBill;
         private ComboBox cbChangeTable;
         private Button btChangeTable;
+        private ColumnHeader IDMonAn;
+        private ColumnHeader IDSoLuong;
     }
 }

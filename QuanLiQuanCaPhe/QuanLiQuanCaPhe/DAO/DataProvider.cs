@@ -10,7 +10,7 @@ namespace QuanLiQuanCaPhe.DAO
 {
     public class DataProvider
     {
-        private static DataProvider instance;
+        private static DataProvider? instance;
 
         public static DataProvider Instance
         {
@@ -58,7 +58,7 @@ namespace QuanLiQuanCaPhe.DAO
 
         }
 
-        public int ExecuteNonQuery(string query, object[] parameter = null)
+        public int ExecuteNonQuery(string query, object[]? parameter = null)
         {
             int dt = 0;
 
@@ -90,7 +90,7 @@ namespace QuanLiQuanCaPhe.DAO
             return dt;
         }
 
-        public object ExecuteScalar(string query, object[] parameter = null)
+        public object ExecuteScalar(string query, object[]? parameter = null)
         {
             object dt = 0;
 
