@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.qToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableAccountProfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lvBill = new System.Windows.Forms.ListView();
+            this.IDMonAn = new System.Windows.Forms.ColumnHeader();
+            this.SoLuong = new System.Windows.Forms.ColumnHeader();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbChangeTable = new System.Windows.Forms.ComboBox();
@@ -44,60 +41,16 @@
             this.btBill = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.nmNum = new System.Windows.Forms.NumericUpDown();
-            this.ADD = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
             this.cbDrink = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.IDMonAn = new System.Windows.Forms.ColumnHeader();
-            this.IDSoLuong = new System.Windows.Forms.ColumnHeader();
-            this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.qToolStripMenuItem,
-            this.tableAccountProfile});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // qToolStripMenuItem
-            // 
-            this.qToolStripMenuItem.Name = "qToolStripMenuItem";
-            this.qToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.qToolStripMenuItem.Text = "Admin";
-            this.qToolStripMenuItem.Click += new System.EventHandler(this.qToolStripMenuItem_Click);
-            // 
-            // tableAccountProfile
-            // 
-            this.tableAccountProfile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinCáNhânToolStripMenuItem,
-            this.logOutToolStripMenuItem});
-            this.tableAccountProfile.Name = "tableAccountProfile";
-            this.tableAccountProfile.Size = new System.Drawing.Size(130, 20);
-            this.tableAccountProfile.Text = "Account Information";
-            this.tableAccountProfile.Click += new System.EventHandler(this.thôngTinTàiKhoảnToolStripMenuItem_Click);
-            // 
-            // thôngTinCáNhânToolStripMenuItem
-            // 
-            this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.thôngTinCáNhânToolStripMenuItem.Text = "Personal Information";
-            this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // panel2
             // 
@@ -112,14 +65,22 @@
             // 
             this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDMonAn,
-            this.IDSoLuong});
+            this.SoLuong});
             this.lvBill.GridLines = true;
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
             this.lvBill.Size = new System.Drawing.Size(349, 320);
             this.lvBill.TabIndex = 1;
             this.lvBill.UseCompatibleStateImageBehavior = false;
-            this.lvBill.View = System.Windows.Forms.View.List;
+            this.lvBill.View = System.Windows.Forms.View.Details;
+            // 
+            // IDMonAn
+            // 
+            this.IDMonAn.Text = "IDMonAn";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.Text = "SoLuong";
             // 
             // panel3
             // 
@@ -186,7 +147,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.nmNum);
-            this.panel5.Controls.Add(this.ADD);
+            this.panel5.Controls.Add(this.btAdd);
             this.panel5.Controls.Add(this.cbDrink);
             this.panel5.Controls.Add(this.cbCategory);
             this.panel5.Location = new System.Drawing.Point(12, 42);
@@ -211,14 +172,14 @@
             0,
             0});
             // 
-            // ADD
+            // btAdd
             // 
-            this.ADD.Location = new System.Drawing.Point(218, 5);
-            this.ADD.Name = "ADD";
-            this.ADD.Size = new System.Drawing.Size(74, 50);
-            this.ADD.TabIndex = 2;
-            this.ADD.Text = "ADD";
-            this.ADD.UseVisualStyleBackColor = true;
+            this.btAdd.Location = new System.Drawing.Point(218, 5);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(74, 50);
+            this.btAdd.TabIndex = 2;
+            this.btAdd.Text = "ADD";
+            this.btAdd.UseVisualStyleBackColor = true;
             // 
             // cbDrink
             // 
@@ -255,37 +216,27 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TableManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lí";
             this.Load += new System.EventHandler(this.TableManager_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem qToolStripMenuItem;
-        private ToolStripMenuItem tableAccountProfile;
-        private ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
-        private ToolStripMenuItem logOutToolStripMenuItem;
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
         private ListView lvBill;
         private Panel panel5;
         private NumericUpDown nmNum;
-        private Button ADD;
+        private Button btAdd;
         private ComboBox cbDrink;
         private ComboBox cbCategory;
         private FlowLayoutPanel flpTable;
@@ -295,6 +246,6 @@
         private ComboBox cbChangeTable;
         private Button btChangeTable;
         private ColumnHeader IDMonAn;
-        private ColumnHeader IDSoLuong;
+        private ColumnHeader SoLuong;
     }
 }

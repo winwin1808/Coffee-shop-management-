@@ -30,7 +30,7 @@ namespace QuanLiQuanCaPhe
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.Text = item.TenBan + "\n" + item.TrangThai;
-               // btn.Click += btn_Click;
+                btn.Click += btn_Click;
                 btn.Tag = item;
 
                 switch (item.TrangThai)
@@ -49,7 +49,8 @@ namespace QuanLiQuanCaPhe
 
         void ShowBill(int id)
         {
-            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));
+            lvBill.Items.Clear();
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));     
             foreach (BillInfo item in listBillInfo)
             {
                 ListViewItem lvItem = new ListViewItem(item.IDMonAn.ToString());

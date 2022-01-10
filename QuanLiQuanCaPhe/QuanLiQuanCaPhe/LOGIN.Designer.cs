@@ -88,6 +88,7 @@
             this.textbox_PASSWORD.Name = "textbox_PASSWORD";
             this.textbox_PASSWORD.Size = new System.Drawing.Size(274, 23);
             this.textbox_PASSWORD.TabIndex = 1;
+            this.textbox_PASSWORD.Text = "123";
             this.textbox_PASSWORD.UseSystemPasswordChar = true;
             // 
             // label2
@@ -117,6 +118,7 @@
             this.textbox_LOGIN.Name = "textbox_LOGIN";
             this.textbox_LOGIN.Size = new System.Drawing.Size(274, 23);
             this.textbox_LOGIN.TabIndex = 1;
+            this.textbox_LOGIN.Text = "Hao";
             // 
             // label1
             // 
