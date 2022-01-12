@@ -50,15 +50,20 @@ namespace QuanLiQuanCaPhe
         void ShowBill(int id)
         {
             lvBill.Items.Clear();
-            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));     
-            foreach (BillInfo item in listBillInfo)
+            List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+            float totalPrice = 0;
+            foreach (Menu item in listBillInfo)
             {
-                ListViewItem lvItem = new ListViewItem(item.IDMonAn.ToString());
+                ListViewItem lvItem = new ListViewItem(item.TenMon.ToString());
                 lvItem.SubItems.Add(item.SoLuong.ToString());
-                //lvItem.SubItems.Add(item.Gia.ToString());
-                lvBill.Items.Add(lvItem);
-            }
+                lvItem.SubItems.Add(item.Gia.ToString());
+                lvItem.SubItems.Add(item.ThanhTien.ToString());
+                totalPrice += item.ThanhTien;
 
+
+                lvBill.Items.Add(lvItem);
+
+            }
         }
 
         #endregion
@@ -101,6 +106,11 @@ namespace QuanLiQuanCaPhe
 
         }
         #endregion
+
+        private void lvBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  

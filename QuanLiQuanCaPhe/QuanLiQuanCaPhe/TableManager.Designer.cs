@@ -30,14 +30,14 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.lvBill = new System.Windows.Forms.ListView();
-            this.IDMonAn = new System.Windows.Forms.ColumnHeader();
-            this.SoLuong = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbChangeTable = new System.Windows.Forms.ComboBox();
             this.btChangeTable = new System.Windows.Forms.Button();
-            this.nmDiscount = new System.Windows.Forms.NumericUpDown();
-            this.btDiscount = new System.Windows.Forms.Button();
             this.btBill = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.nmNum = new System.Windows.Forms.NumericUpDown();
@@ -45,9 +45,9 @@
             this.cbDrink = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.textboxDiscount = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).BeginInit();
             this.SuspendLayout();
@@ -64,23 +64,37 @@
             // lvBill
             // 
             this.lvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.IDMonAn,
-            this.SoLuong});
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvBill.GridLines = true;
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
+            this.lvBill.Scrollable = false;
             this.lvBill.Size = new System.Drawing.Size(349, 320);
             this.lvBill.TabIndex = 1;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
+            this.lvBill.SelectedIndexChanged += new System.EventHandler(this.lvBill_SelectedIndexChanged);
             // 
-            // IDMonAn
+            // columnHeader1
             // 
-            this.IDMonAn.Text = "IDMonAn";
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 150;
             // 
-            // SoLuong
+            // columnHeader2
             // 
-            this.SoLuong.Text = "SoLuong";
+            this.columnHeader2.Text = "Count";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Price";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Total";
+            this.columnHeader4.Width = 80;
             // 
             // panel3
             // 
@@ -91,10 +105,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.textboxDiscount);
             this.panel4.Controls.Add(this.cbChangeTable);
             this.panel4.Controls.Add(this.btChangeTable);
-            this.panel4.Controls.Add(this.nmDiscount);
-            this.panel4.Controls.Add(this.btDiscount);
             this.panel4.Controls.Add(this.btBill);
             this.panel4.Location = new System.Drawing.Point(12, 440);
             this.panel4.Name = "panel4";
@@ -104,45 +117,30 @@
             // cbChangeTable
             // 
             this.cbChangeTable.FormattingEnabled = true;
-            this.cbChangeTable.Location = new System.Drawing.Point(6, 30);
+            this.cbChangeTable.Location = new System.Drawing.Point(6, 5);
             this.cbChangeTable.Name = "cbChangeTable";
             this.cbChangeTable.Size = new System.Drawing.Size(74, 23);
             this.cbChangeTable.TabIndex = 6;
+            this.cbChangeTable.Text = "Table";
             // 
             // btChangeTable
             // 
-            this.btChangeTable.Location = new System.Drawing.Point(6, 3);
+            this.btChangeTable.Location = new System.Drawing.Point(86, 5);
             this.btChangeTable.Name = "btChangeTable";
             this.btChangeTable.Size = new System.Drawing.Size(74, 24);
             this.btChangeTable.TabIndex = 5;
             this.btChangeTable.Text = "CHANGE";
             this.btChangeTable.UseVisualStyleBackColor = true;
             // 
-            // nmDiscount
-            // 
-            this.nmDiscount.Location = new System.Drawing.Point(86, 30);
-            this.nmDiscount.Name = "nmDiscount";
-            this.nmDiscount.Size = new System.Drawing.Size(74, 23);
-            this.nmDiscount.TabIndex = 4;
-            this.nmDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btDiscount
-            // 
-            this.btDiscount.Location = new System.Drawing.Point(86, 3);
-            this.btDiscount.Name = "btDiscount";
-            this.btDiscount.Size = new System.Drawing.Size(74, 24);
-            this.btDiscount.TabIndex = 1;
-            this.btDiscount.Text = "DISCOUNT";
-            this.btDiscount.UseVisualStyleBackColor = true;
-            // 
             // btBill
             // 
+            this.btBill.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btBill.Location = new System.Drawing.Point(166, 3);
             this.btBill.Name = "btBill";
             this.btBill.Size = new System.Drawing.Size(186, 50);
             this.btBill.TabIndex = 0;
             this.btBill.Text = "BILL";
-            this.btBill.UseVisualStyleBackColor = true;
+            this.btBill.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -207,10 +205,19 @@
             this.flpTable.TabIndex = 6;
             this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
+            // textboxDiscount
+            // 
+            this.textboxDiscount.Location = new System.Drawing.Point(6, 30);
+            this.textboxDiscount.Name = "textboxDiscount";
+            this.textboxDiscount.PlaceholderText = "Discount code here";
+            this.textboxDiscount.Size = new System.Drawing.Size(154, 23);
+            this.textboxDiscount.TabIndex = 7;
+            // 
             // TableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 516);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel5);
@@ -222,7 +229,7 @@
             this.Load += new System.EventHandler(this.TableManager_Load);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nmDiscount)).EndInit();
+            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).EndInit();
             this.ResumeLayout(false);
@@ -240,12 +247,13 @@
         private ComboBox cbDrink;
         private ComboBox cbCategory;
         private FlowLayoutPanel flpTable;
-        private NumericUpDown nmDiscount;
-        private Button btDiscount;
         private Button btBill;
         private ComboBox cbChangeTable;
         private Button btChangeTable;
-        private ColumnHeader IDMonAn;
-        private ColumnHeader SoLuong;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        public TextBox textboxDiscount;
     }
 }
