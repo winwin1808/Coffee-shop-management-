@@ -32,5 +32,26 @@ namespace QuanLiQuanCaPhe.DAO
 
             return -1;
         }
+
+        public void InsertBill(int id)
+        {
+            DataProvider.Instance.ExcuteNonQuery("EXEC USP_InsertBill @idBan", new object[] { id });
+        }
+        public int GetMaxIDBill()
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(ID) FROM dbo.HOADON");
+            }
+            catch
+            {
+                return 1;
+            }
+        }
+        public void CheckOut(int id)
+        {
+            string query = $"UPDATE dbo.HOADON SET TrangThai = 1 WHERE IDBan = {id}";
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
     }    
 }

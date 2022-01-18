@@ -38,7 +38,7 @@ namespace QuanLiQuanCaPhe.DAO
 
         public void InsertBillInfo(int IDHoaDon, int IDMonAn, int SoLuong)
         {
-            DataProvider.Instance.ExecuteNonQuery("USP_InsertBillInfo @IDHoaDon , @IDMonAn , @SoLuong", new object[] { IDHoaDon, IDMonAn, SoLuong });
+            DataProvider.Instance.ExcuteNonQuery("USP_BillInfo @IDHoaDon , @IDMonAn , @SoLuong", new object[] { IDHoaDon, IDMonAn, SoLuong });
         }
     }
 }

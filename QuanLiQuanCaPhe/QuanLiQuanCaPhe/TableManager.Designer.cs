@@ -36,6 +36,7 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.textboxDiscount = new System.Windows.Forms.TextBox();
             this.cbChangeTable = new System.Windows.Forms.ComboBox();
             this.btChangeTable = new System.Windows.Forms.Button();
             this.btBill = new System.Windows.Forms.Button();
@@ -45,11 +46,16 @@
             this.cbDrink = new System.Windows.Forms.ComboBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.textboxDiscount = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalInfomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -114,6 +120,14 @@
             this.panel4.Size = new System.Drawing.Size(355, 60);
             this.panel4.TabIndex = 4;
             // 
+            // textboxDiscount
+            // 
+            this.textboxDiscount.Location = new System.Drawing.Point(6, 30);
+            this.textboxDiscount.Name = "textboxDiscount";
+            this.textboxDiscount.PlaceholderText = "Discount code here";
+            this.textboxDiscount.Size = new System.Drawing.Size(154, 23);
+            this.textboxDiscount.TabIndex = 7;
+            // 
             // cbChangeTable
             // 
             this.cbChangeTable.FormattingEnabled = true;
@@ -141,6 +155,7 @@
             this.btBill.TabIndex = 0;
             this.btBill.Text = "BILL";
             this.btBill.UseVisualStyleBackColor = false;
+            this.btBill.Click += new System.EventHandler(this.btBill_Click);
             // 
             // panel5
             // 
@@ -178,6 +193,7 @@
             this.btAdd.TabIndex = 2;
             this.btAdd.Text = "ADD";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // cbDrink
             // 
@@ -194,6 +210,7 @@
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(209, 23);
             this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategoryChange);
             // 
             // flpTable
             // 
@@ -205,13 +222,46 @@
             this.flpTable.TabIndex = 6;
             this.flpTable.Paint += new System.Windows.Forms.PaintEventHandler(this.flpTable_Paint);
             // 
-            // textboxDiscount
+            // menuStrip1
             // 
-            this.textboxDiscount.Location = new System.Drawing.Point(6, 30);
-            this.textboxDiscount.Name = "textboxDiscount";
-            this.textboxDiscount.PlaceholderText = "Discount code here";
-            this.textboxDiscount.Size = new System.Drawing.Size(154, 23);
-            this.textboxDiscount.TabIndex = 7;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adminToolStripMenuItem,
+            this.accountToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.personalInfomationToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // personalInfomationToolStripMenuItem
+            // 
+            this.personalInfomationToolStripMenuItem.Name = "personalInfomationToolStripMenuItem";
+            this.personalInfomationToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.personalInfomationToolStripMenuItem.Text = "Personal Infomation";
+            this.personalInfomationToolStripMenuItem.Click += new System.EventHandler(this.personalInfomationToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.toolStripMenuItem1.Text = "Log out";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // TableManager
             // 
@@ -223,6 +273,8 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TableManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lí";
@@ -232,7 +284,10 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nmNum)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -255,5 +310,10 @@
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
         public TextBox textboxDiscount;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem adminToolStripMenuItem;
+        private ToolStripMenuItem accountToolStripMenuItem;
+        private ToolStripMenuItem personalInfomationToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

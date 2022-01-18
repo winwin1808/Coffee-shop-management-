@@ -58,7 +58,7 @@ namespace QuanLiQuanCaPhe.DAO
 
         }
 
-        public int ExecuteNonQuery(string query, object[]? parameter = null)
+        public int ExcuteNonQuery(string query, object[]? parameter = null)
         {
             int dt = 0;
 
@@ -88,6 +88,11 @@ namespace QuanLiQuanCaPhe.DAO
             }
 
             return dt;
+        }
+
+        internal DataTable ExecuteQuery(string query)
+        {
+            throw new NotImplementedException();
         }
 
         public object ExecuteScalar(string query, object[]? parameter = null)

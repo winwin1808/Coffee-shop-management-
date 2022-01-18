@@ -24,7 +24,7 @@ namespace QuanLiQuanCaPhe.DAO
         {
             List<Menu> listMenu = new List<Menu>();
 
-            string query = $"SELECT MA.TenMon, TTHD.SoLuong, MA.Gia, TTHD.SoLuong*MA.Gia AS ThanhTien  FROM  dbo.THONGTINHOADON AS TTHD, dbo.HOADON AS HD, dbo.MONAN AS MA WHERE TTHD.IDHoaDon = HD.ID AND TTHD.IDMonAn = MA.ID AND HD.IDBan = {id}";
+            string query = $"SELECT MA.TenMon, TTHD.SoLuong, MA.Gia, TTHD.SoLuong*MA.Gia AS ThanhTien  FROM  dbo.THONGTINHOADON AS TTHD, dbo.HOADON AS HD, dbo.MONAN AS MA WHERE HD.TrangThai = 0 AND TTHD.IDHoaDon = HD.ID AND TTHD.IDMonAn = MA.ID AND HD.IDBan = {id}";
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
 
             foreach (DataRow item in data.Rows)
