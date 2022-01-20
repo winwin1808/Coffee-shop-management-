@@ -40,5 +40,7 @@ namespace QuanLiQuanCaPhe.DAO
         {
             DataProvider.Instance.ExcuteNonQuery("USP_BillInfo @IDHoaDon , @IDMonAn , @SoLuong", new object[] { IDHoaDon, IDMonAn, SoLuong });
         }
+
     }
+
 }

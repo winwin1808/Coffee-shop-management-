@@ -14,15 +14,30 @@ namespace QuanLiQuanCaPhe
 {
     public partial class TableManager : Form
     {
-        public TableManager()
+        private Account loginAccount;
+
+        public Account LoginAccount 
+        { get { return loginAccount; } 
+          set { loginAccount = value; ChangeType(LoginAccount.Type); } 
+        }
+
+        public TableManager(Account TaiKhoan)
         {
+
             InitializeComponent();
-            LoadTable();
+
+            this.LoginAccount = TaiKhoan;
+
+            loadTable();
             LoadCategory();
         }
 
 
         #region Method
+        void ChangeType(int LoaiTaiKhoan)
+        {
+            adminToolStripMenuItem.Enabled = LoaiTaiKhoan == 1; 
+        }
         void LoadCategory()
         {
             List<Category> listCategory = CategoryDAO.Instance.GetListCategory();
@@ -35,9 +50,12 @@ namespace QuanLiQuanCaPhe
             cbDrink.DataSource = listFood;
             cbDrink.DisplayMember = "Name";
         }
-        void LoadTable()
+        void loadTable()
         {
+            flpTable.Controls.Clear();
+
             List<Table> tablelist = DAO.TableDAO.Instance.LoadTableList();
+
             foreach (Table item in tablelist)
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
@@ -58,13 +76,13 @@ namespace QuanLiQuanCaPhe
                 flpTable.Controls.Add(btn);
             }
         }
-
         void ShowBill(int id)
         {
             lvBill.Items.Clear();
             List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
             float totalPrice = 0;
 
+              
             foreach (Menu item in listBillInfo)
             {
                 ListViewItem lvItem = new ListViewItem(item.TenMon.ToString());
@@ -75,17 +93,44 @@ namespace QuanLiQuanCaPhe
                 lvBill.Items.Add(lvItem);
        
             }
+
+            int discount = GetDiscount();
+            if (discount != 1) 
+            { 
+                totalPrice = totalPrice * (100 - discount) / 100;
+            }     
             if ( totalPrice != 0)
             {
                 ListViewItem lvTotal = new ListViewItem("TOTAL");
                 lvTotal.SubItems.Add("");
-                lvTotal.SubItems.Add("");
+                if (discount != 1) { lvTotal.SubItems.Add($"- {discount} %"); }
+                else { lvTotal.SubItems.Add(""); }
                 lvTotal.SubItems.Add(totalPrice.ToString());
                 Font f = new Font(lvTotal.Font, FontStyle.Bold);
                 lvTotal.Font = f;
                 lvBill.Items.Add(lvTotal);
             }
-            
+        }
+      
+        float TotalPrice(int id)
+        {
+            List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+            float totalPrice = 0;
+
+            foreach (Menu item in listBillInfo)
+            {
+                totalPrice += item.ThanhTien;
+            }
+            return totalPrice; 
+        }
+
+
+        public int GetDiscount()
+        {
+            string code = (string)textboxDiscount.Text;
+            int discount;
+            discount = DiscountDAO.Instance.CheckDiscount(code);
+            return discount;
         }
 
         #endregion
@@ -127,12 +172,7 @@ namespace QuanLiQuanCaPhe
             this.Close();
         }
 
-        private void personalInfomationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PersonalInformation f = new PersonalInformation();
-            f.ShowDialog();
-
-        }
+    
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -183,7 +223,7 @@ namespace QuanLiQuanCaPhe
 
             ShowBill(table.SoBan);
 
-            LoadTable();
+            loadTable();
         }
 
         private void btBill_Click(object sender, EventArgs e)
@@ -191,15 +231,45 @@ namespace QuanLiQuanCaPhe
             Table table = lvBill.Tag as Table;
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.SoBan);
+            string discount = (string)textboxDiscount.Text;
+            float TongTien = TotalPrice(table.SoBan);
 
-            if (idBill != -1)
+            if (idBill == -1)
+            {
+                MessageBox.Show($"No order added!", "Warning",MessageBoxButtons.OK);
+            }
+            else            
             {
                 if (MessageBox.Show($"Confirm {table.TenBan}?", "Nofication", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill,discount,TongTien);
                     ShowBill(table.SoBan);
+                    loadTable();    
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Table table = lvBill.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.SoBan);
+
+
+            int discount = GetDiscount();
+            if (discount == 1)
+            {
+                ShowBill(table.SoBan);
+                MessageBox.Show("Incorrect code","Warning", MessageBoxButtons.OK);
+            }
+            else
+            {
+                ShowBill(table.SoBan);
+            }
+        }
+
+        private void textboxDiscount_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

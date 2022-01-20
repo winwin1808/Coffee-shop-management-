@@ -1,4 +1,14 @@
 using QuanLiQuanCaPhe.DAO;
+using QuanLiQuanCaPhe.DTO;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLiQuanCaPhe
 {
@@ -36,7 +46,9 @@ namespace QuanLiQuanCaPhe
 
             if (Login(UserName, PassWord))
             {
-                TableManager f = new TableManager();
+                Account TaiKhoan = AccountDAO.Instance.GetAccountByUserName(UserName);
+                TableManager f = new TableManager(TaiKhoan);
+
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

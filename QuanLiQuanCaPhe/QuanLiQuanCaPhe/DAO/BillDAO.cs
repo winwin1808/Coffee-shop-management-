@@ -10,7 +10,7 @@ namespace QuanLiQuanCaPhe.DAO
 {
     public class BillDAO
     {
-        private static BillDAO? instance;
+        private static BillDAO instance;
 
         public static BillDAO Instance
         {
@@ -35,7 +35,7 @@ namespace QuanLiQuanCaPhe.DAO
 
         public void InsertBill(int id)
         {
-            DataProvider.Instance.ExcuteNonQuery("EXEC USP_InsertBill @idBan", new object[] { id });
+            DataProvider.Instance.ExcuteNonQuery("EXEC USP_InsertBill @IDBan", new object[] { id });
         }
         public int GetMaxIDBill()
         {
@@ -48,10 +48,16 @@ namespace QuanLiQuanCaPhe.DAO
                 return 1;
             }
         }
-        public void CheckOut(int id)
+         public void CheckOut(int id, string MaGiam, float TongTien)
         {
-            string query = $"UPDATE dbo.HOADON SET TrangThai = 1 WHERE IDBan = {id}";
+            string query = $"UPDATE dbo.HOADON SET TrangThai = 1, GiamGia = N'{MaGiam}', TongTien = {TongTien} WHERE ID = {id}";
             DataProvider.Instance.ExcuteNonQuery(query);
         }
+
+        public DataTable GetBillListByDate(DateTime checkIn)
+        {
+            return DataProvider.Instance.ExcuteQuery("exec USP_GetListBillByDate @NgayVao", new object[] { checkIn });
+        }
+
     }    
 }

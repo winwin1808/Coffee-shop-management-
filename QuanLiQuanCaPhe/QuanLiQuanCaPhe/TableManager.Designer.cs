@@ -36,9 +36,8 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.textboxDiscount = new System.Windows.Forms.TextBox();
-            this.cbChangeTable = new System.Windows.Forms.ComboBox();
-            this.btChangeTable = new System.Windows.Forms.Button();
             this.btBill = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.nmNum = new System.Windows.Forms.NumericUpDown();
@@ -49,7 +48,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.personalInfomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -64,7 +62,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(12, 108);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(355, 326);
+            this.panel2.Size = new System.Drawing.Size(355, 312);
             this.panel2.TabIndex = 3;
             // 
             // lvBill
@@ -78,7 +76,7 @@
             this.lvBill.Location = new System.Drawing.Point(3, 3);
             this.lvBill.Name = "lvBill";
             this.lvBill.Scrollable = false;
-            this.lvBill.Size = new System.Drawing.Size(349, 320);
+            this.lvBill.Size = new System.Drawing.Size(349, 305);
             this.lvBill.TabIndex = 1;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
@@ -111,47 +109,40 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnDiscount);
             this.panel4.Controls.Add(this.textboxDiscount);
-            this.panel4.Controls.Add(this.cbChangeTable);
-            this.panel4.Controls.Add(this.btChangeTable);
             this.panel4.Controls.Add(this.btBill);
-            this.panel4.Location = new System.Drawing.Point(12, 440);
+            this.panel4.Location = new System.Drawing.Point(12, 426);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(355, 60);
+            this.panel4.Size = new System.Drawing.Size(355, 74);
             this.panel4.TabIndex = 4;
+            // 
+            // btnDiscount
+            // 
+            this.btnDiscount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDiscount.Location = new System.Drawing.Point(6, 32);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(154, 39);
+            this.btnDiscount.TabIndex = 8;
+            this.btnDiscount.Text = "DISCOUNT CHECK";
+            this.btnDiscount.UseVisualStyleBackColor = false;
+            this.btnDiscount.Click += new System.EventHandler(this.button1_Click);
             // 
             // textboxDiscount
             // 
-            this.textboxDiscount.Location = new System.Drawing.Point(6, 30);
+            this.textboxDiscount.Location = new System.Drawing.Point(6, 3);
             this.textboxDiscount.Name = "textboxDiscount";
             this.textboxDiscount.PlaceholderText = "Discount code here";
             this.textboxDiscount.Size = new System.Drawing.Size(154, 23);
             this.textboxDiscount.TabIndex = 7;
-            // 
-            // cbChangeTable
-            // 
-            this.cbChangeTable.FormattingEnabled = true;
-            this.cbChangeTable.Location = new System.Drawing.Point(6, 5);
-            this.cbChangeTable.Name = "cbChangeTable";
-            this.cbChangeTable.Size = new System.Drawing.Size(74, 23);
-            this.cbChangeTable.TabIndex = 6;
-            this.cbChangeTable.Text = "Table";
-            // 
-            // btChangeTable
-            // 
-            this.btChangeTable.Location = new System.Drawing.Point(86, 5);
-            this.btChangeTable.Name = "btChangeTable";
-            this.btChangeTable.Size = new System.Drawing.Size(74, 24);
-            this.btChangeTable.TabIndex = 5;
-            this.btChangeTable.Text = "CHANGE";
-            this.btChangeTable.UseVisualStyleBackColor = true;
+            this.textboxDiscount.TextChanged += new System.EventHandler(this.textboxDiscount_TextChanged);
             // 
             // btBill
             // 
             this.btBill.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btBill.Location = new System.Drawing.Point(166, 3);
             this.btBill.Name = "btBill";
-            this.btBill.Size = new System.Drawing.Size(186, 50);
+            this.btBill.Size = new System.Drawing.Size(186, 68);
             this.btBill.TabIndex = 0;
             this.btBill.Text = "BILL";
             this.btBill.UseVisualStyleBackColor = false;
@@ -243,23 +234,15 @@
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.personalInfomationToolStripMenuItem,
             this.toolStripMenuItem1});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
-            // personalInfomationToolStripMenuItem
-            // 
-            this.personalInfomationToolStripMenuItem.Name = "personalInfomationToolStripMenuItem";
-            this.personalInfomationToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.personalInfomationToolStripMenuItem.Text = "Personal Infomation";
-            this.personalInfomationToolStripMenuItem.Click += new System.EventHandler(this.personalInfomationToolStripMenuItem_Click);
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Log out";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -303,8 +286,6 @@
         private ComboBox cbCategory;
         private FlowLayoutPanel flpTable;
         private Button btBill;
-        private ComboBox cbChangeTable;
-        private Button btChangeTable;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
@@ -313,7 +294,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem adminToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
-        private ToolStripMenuItem personalInfomationToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
+        private Button btnDiscount;
     }
 }

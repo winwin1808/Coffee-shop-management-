@@ -10,18 +10,18 @@ namespace QuanLiQuanCaPhe.DAO
 {
     public class DataProvider
     {
-        private static DataProvider? instance;
+        private static DataProvider instance;
 
         public static DataProvider Instance
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
 
-            private set => instance = value;
+            private set => DataProvider.instance = value;
         }
 
         private string connectionString = "Data Source=PENNY;Initial Catalog=QuanLiCaPhe;Integrated Security=True;TrustServerCertificate=True";
 
-        public DataTable ExcuteQuery(string query, object[]? parameter = null)
+        public DataTable ExcuteQuery(string query, object[] parameter = null)
         {
             DataTable dt = new DataTable();
 
@@ -58,7 +58,7 @@ namespace QuanLiQuanCaPhe.DAO
 
         }
 
-        public int ExcuteNonQuery(string query, object[]? parameter = null)
+        public int ExcuteNonQuery(string query, object[] parameter = null)
         {
             int dt = 0;
 
@@ -88,11 +88,6 @@ namespace QuanLiQuanCaPhe.DAO
             }
 
             return dt;
-        }
-
-        internal DataTable ExecuteQuery(string query)
-        {
-            throw new NotImplementedException();
         }
 
         public object ExecuteScalar(string query, object[]? parameter = null)
