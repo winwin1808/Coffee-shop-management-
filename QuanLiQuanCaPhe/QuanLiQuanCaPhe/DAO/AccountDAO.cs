@@ -12,7 +12,6 @@ namespace QuanLiQuanCaPhe.DAO
     {
         private static AccountDAO instance;
         public static AccountDAO Instance
-
         {
             get { if (instance == null) instance = new AccountDAO(); return instance; }
             private set { instance = value; }

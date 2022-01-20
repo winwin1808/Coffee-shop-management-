@@ -59,13 +59,10 @@ namespace QuanLiQuanCaPhe
             }
            
         }
-
         bool Login(string UserName, string PassWord)
         {
             return AccountDAO.Instance.Login(UserName,PassWord);
         }
-
-
         private void LOGIN_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Exit now?", "Warning", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)

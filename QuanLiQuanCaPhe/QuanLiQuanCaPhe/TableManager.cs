@@ -19,7 +19,7 @@ namespace QuanLiQuanCaPhe
         public Account LoginAccount 
         { get { return loginAccount; } 
           set { loginAccount = value; ChangeType(LoginAccount.Type); } 
-        }
+        }           
 
         public TableManager(Account TaiKhoan)
         {
@@ -32,8 +32,6 @@ namespace QuanLiQuanCaPhe
             LoadCategory();
         }
 
-
-        #region Method
         void ChangeType(int LoaiTaiKhoan)
         {
             adminToolStripMenuItem.Enabled = LoaiTaiKhoan == 1; 
@@ -76,6 +74,7 @@ namespace QuanLiQuanCaPhe
                 flpTable.Controls.Add(btn);
             }
         }
+
         void ShowBill(int id)
         {
             lvBill.Items.Clear();
@@ -97,7 +96,7 @@ namespace QuanLiQuanCaPhe
             int discount = GetDiscount();
             if (discount != 1) 
             { 
-                totalPrice = totalPrice * (100 - discount) / 100;
+                totalPrice = totalPrice * (100 - discount) / 100;                
             }     
             if ( totalPrice != 0)
             {
@@ -111,7 +110,6 @@ namespace QuanLiQuanCaPhe
                 lvBill.Items.Add(lvTotal);
             }
         }
-      
         float TotalPrice(int id)
         {
             List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
@@ -133,10 +131,10 @@ namespace QuanLiQuanCaPhe
             return discount;
         }
 
-        #endregion
+        
 
 
-        #region Events
+        
 
         void btn_Click(object sender, EventArgs e)
         {
@@ -160,7 +158,7 @@ namespace QuanLiQuanCaPhe
         {
 
         }
-        #endregion
+        
 
         private void lvBill_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -266,7 +264,6 @@ namespace QuanLiQuanCaPhe
                 ShowBill(table.SoBan);
             }
         }
-
         private void textboxDiscount_TextChanged(object sender, EventArgs e)
         {
 
