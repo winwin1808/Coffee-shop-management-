@@ -37,7 +37,7 @@ namespace QuanLiQuanCaPhe.DAO
             return list;
         }
 
-        public List<Food> GetListFood()
+        public List<Food> GetListDrink()
         {
             List<Food> list = new List<Food>();
 
@@ -52,6 +52,29 @@ namespace QuanLiQuanCaPhe.DAO
             }
 
             return list;
+        }
+        public bool InsertFood(string TenMon, int IDPhanLoai, float Gia)
+        {
+            string query = string.Format($"INSERT dbo.MONAN ( TenMon, IDPhanLoai, Gia ) VALUES  ( N'{TenMon}', {IDPhanLoai},{Gia})");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool UpdateFood(string TenMon, float Gia)
+        {
+            string query = string.Format($"UPDATE dbo.MONAN SET Gia = {Gia} WHERE TenMon = N'{TenMon}'");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        public bool DeleteFood(string TenMon)
+        {
+            string query = string.Format($"Delete dbo.MONAN WHERE TenMon = N'{TenMon}'");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
         }
     }
 }

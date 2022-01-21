@@ -64,7 +64,7 @@ namespace QuanLiQuanCaPhe
                 switch (item.TrangThai)
                 {
                     case "Available":
-                        btn.BackColor = Color.LightBlue;
+                        btn.BackColor = Color.White;
                         break;
                     default:
                         btn.BackColor = Color.DarkGray;

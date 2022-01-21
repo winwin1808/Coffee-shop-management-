@@ -59,3 +59,4 @@ D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\bin\Debug\net6.0-wi
 D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.csproj.CopyComplete
 D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.genruntimeconfig.cache
 D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.Properties.Resources.resources
+D:\LEARN\OOP\QuanLiQuanCaPhe\QuanLiQuanCaPhe\QuanLiQuanCaPhe\obj\Debug\net6.0-windows\QuanLiQuanCaPhe.Print.resources

@@ -18,8 +18,8 @@ namespace QuanLiQuanCaPhe.DAO
             private set { TableDAO.instance = value; }
         }
 
-        public static int TableWidth = 120;
-        public static int TableHeight = 120;
+        public static int TableWidth = 127;
+        public static int TableHeight = 127;
 
         private TableDAO() { }
 

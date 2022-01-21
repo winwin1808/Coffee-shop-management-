@@ -36,5 +36,40 @@ namespace QuanLiQuanCaPhe.DAO
             return 1;
             
         }
-    }
+        public List<Discount> GetDiscountsList()
+        {
+            List<Discount> list = new List<Discount>();
+
+            string query = "SELECT * FROM GIAMGIA";
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                Discount discount = new Discount(item);
+                list.Add(discount);
+            }
+
+            return list;
+        }
+        public bool InsertDiscount(string Magiam, int MucGiam)
+        {
+            string query = string.Format($"INSERT dbo.GIAMGIA ( MaGia, MucGiam ) VALUES  ( N'{Magiam}',{MucGiam})");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
+        public bool UpdateDiscount(string Magiam, int MucGiam)
+        {
+            string query = string.Format($"UPDATE dbo.GIAMGIA SET MucGiam = {MucGiam} WHERE MaGiam = N'{Magiam}'");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
+        public bool DeleteDiscount(string Magiam)
+        {
+            string query = string.Format($"Delete dbo.GIAMGIA WHERE MaGia = N'{Magiam}'");
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
+    } 
 }
